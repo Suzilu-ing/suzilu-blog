@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "thvu",
+  title: "suzilu",
+  description:
+    "just a developer figuring things out, one commit at a time.",
 };
 
 export default function RootLayout({
@@ -12,10 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         {children}
-        <Analytics />
       </body>
     </html>
   );

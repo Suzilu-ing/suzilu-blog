@@ -45,9 +45,9 @@ export default function NotFoundCanvas() {
       const cols = Math.max(20, Math.floor(width / charW));
       const rows = Math.max(20, Math.floor(height / charH));
 
-      ctx.font = `${fontSize}px \"Paper Mono\", \"IBM Plex Mono\", \"JetBrains Mono\", monospace`;
+      ctx.font = `${fontSize}px "JetBrains Mono", ui-monospace, Menlo, monospace`;
       ctx.textBaseline = "top";
-      ctx.fillStyle = "rgba(31, 28, 22, 0.65)";
+      ctx.fillStyle = "rgba(240, 237, 230, 0.45)";
 
       for (let row = 0; row < rows; row += 1) {
         for (let col = 0; col < cols; col += 1) {
