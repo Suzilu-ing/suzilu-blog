@@ -11,11 +11,12 @@
   --dbx-ink-3: #444;
   --dbx-rule: #2a2a2a;
   --dbx-rule-2: #1c1c1c;
-  --dbx-accent: #50FB7B;
+  --dbx-accent: #67eb88;
   --dbx-accent-dim: rgba(202, 255, 51, 0.12);
 
   --dbx-font-display: "Space Grotesk", system-ui, sans-serif;
   --dbx-font-sans: "TsangerJinKai02", system-ui, -apple-system, sans-serif;
+  --dbx-font-caption: "TsangerJinKai02", STKaiti, KaiTi, KaiTi_GB2312, serif;
   --dbx-font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
 
   --dbx-text-hero: clamp(64px, 17vw, 176px);
@@ -312,21 +313,22 @@ a.dbx-section-head__name:hover {
 
 .dbx-photo-card {
   display: block;
-  border: 1px solid var(--dbx-rule);
+  background: #ffffff;
   border-radius: 8px;
   overflow: hidden;
-  transition: border-color var(--dbx-speed-fast), transform var(--dbx-speed-fast);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform var(--dbx-speed-fast), box-shadow var(--dbx-speed-fast);
 }
 
 .dbx-photo-card:hover {
-  border-color: var(--dbx-accent);
   transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
 }
 
 .dbx-photo-card__img-wrap {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: var(--dbx-surface);
+  background: #f4f4f1;
 }
 
 .dbx-photo-card__img {
@@ -341,36 +343,84 @@ a.dbx-section-head__name:hover {
 }
 
 .dbx-photo-card__info {
-  padding: var(--dbx-s-3) var(--dbx-s-4);
+  display: grid;
+  gap: var(--dbx-s-2);
+  padding: var(--dbx-s-4);
+}
+
+.dbx-photo-card__meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--dbx-s-4);
 }
 
 .dbx-photo-card__date {
-  display: block;
   font-family: var(--dbx-font-mono);
-  font-size: var(--dbx-text-xs);
+  font-size: 14px;
+  font-weight: 500;
   color: var(--dbx-ink-3);
-  letter-spacing: var(--dbx-tracking-meta);
-  margin-bottom: var(--dbx-s-1);
+  white-space: nowrap;
 }
 
 .dbx-photo-card__title {
   font-family: var(--dbx-font-display);
-  font-size: var(--dbx-text-body);
+  font-size: 16px;
+  font-weight: 600;
   color: var(--dbx-ink);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.dbx-photo-card__excerpt {
+  margin: 0;
+  font-family: var(--dbx-font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--dbx-ink-3);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 /* ── Photo album hero image ───────────────────── */
 
 .dbx-photo-hero {
+  width: fit-content;
+  max-width: 100%;
   margin: 0 0 var(--dbx-s-8);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--dbx-rule);
 }
 
 .dbx-photo-hero__img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  max-height: min(70vh, 680px);
+  margin: 0;
   display: block;
+  cursor: zoom-in;
+}
+
+.dbx-photo-hero__caption {
+  max-width: min(100%, 680px);
+  margin-top: var(--dbx-s-2);
+  font-family: var(--dbx-font-caption);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #5f6b74;
+  text-align: left;
+}
+
+.dbx-photo-hero__caption *,
+.dbx-photo-hero__caption small {
+  display: block;
+  margin: 0;
+  font-family: var(--dbx-font-caption);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #000000;
+  text-align: left;
 }
 
 /* ── 404 page ─────────────────────────────────── */
@@ -535,15 +585,152 @@ a.dbx-section-head__name:hover {
 }
 
 .dbx-post__body img {
-  max-width: 100%;
+  display: block;
+  width: auto;
+  max-width: min(100%, 680px);
+  max-height: min(70vh, 520px);
+  height: auto;
   border-radius: 8px;
   margin: var(--dbx-s-6) 0;
+  cursor: zoom-in;
+}
+
+.dbx-photo-figure {
+  display: inline-block;
+  max-width: min(100%, 680px);
+  margin: var(--dbx-s-6) 0;
+}
+
+.dbx-photo-figure img {
+  margin: 0;
+}
+
+.dbx-photo-figure small {
+  display: block;
+  margin-top: var(--dbx-s-2);
+  font-family: var(--dbx-font-caption);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #5f6b74;
+}
+
+.dbx-post__body small {
+  font-family: var(--dbx-font-caption);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #5f6b74;
+}
+
+.dbx-post__body p:has(> small:only-child) {
+  max-width: min(100%, 680px);
+  margin: calc(var(--dbx-s-6) * -1 + var(--dbx-s-2)) 0 var(--dbx-s-6);
+}
+
+.dbx-post__body img + small,
+.dbx-post__body p:has(img) + p small,
+.dbx-post__body p > small:only-child {
+  display: block;
+  max-width: min(100%, 680px);
+  margin: calc(var(--dbx-s-6) * -1 + var(--dbx-s-2)) 0 var(--dbx-s-6);
+  font-family: var(--dbx-font-caption);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #5f6b74;
+  text-align: left;
+}
+
+.dbx-lightbox-open {
+  overflow: hidden;
+}
+
+.dbx-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.88);
+  animation: dbx-lightbox-fade-in 0.3s ease-out;
+}
+
+.dbx-lightbox__stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 5vw, 56px);
+  overflow: hidden;
+  cursor: zoom-in;
+  touch-action: none;
+}
+
+.dbx-lightbox__stage--zoomed {
+  cursor: zoom-out;
+}
+
+.dbx-lightbox__pan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dbx-lightbox__pan[data-dragging="true"] {
+  transition-duration: 90ms;
+  transition-timing-function: linear;
+}
+
+.dbx-lightbox__img {
+  display: block;
+  max-width: calc(100vw - clamp(40px, 10vw, 112px));
+  max-height: calc(100vh - clamp(40px, 10vw, 112px));
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  transform-origin: center center;
+  animation: dbx-lightbox-image-in 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.dbx-lightbox__stage--zoomed .dbx-lightbox__img {
+  cursor: grab;
+}
+
+.dbx-lightbox__stage--dragging .dbx-lightbox__img {
+  cursor: grabbing;
 }
 
 .dbx-post__body hr {
   border: none;
   border-top: 1px solid var(--dbx-rule);
   margin: var(--dbx-s-10) 0;
+}
+
+@keyframes dbx-lightbox-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dbx-lightbox-image-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .dbx-post__footer {

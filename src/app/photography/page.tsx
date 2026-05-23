@@ -36,8 +36,13 @@ export default function PhotographyPage() {
                 />
               </div>
               <div className="dbx-photo-card__info">
-                <span className="dbx-photo-card__date">{photo.date}</span>
-                <span className="dbx-photo-card__title">{photo.title}</span>
+                <div className="dbx-photo-card__meta">
+                  <span className="dbx-photo-card__title">{photo.title}</span>
+                  <span className="dbx-photo-card__date">{photo.date}</span>
+                </div>
+                {photo.excerpt ? (
+                  <p className="dbx-photo-card__excerpt">{photo.excerpt}</p>
+                ) : null}
               </div>
             </Link>
           ))}

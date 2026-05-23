@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPhotoBySlug } from "@/lib/photos";
+import PhotoLightbox from "./photo-lightbox";
 
 export const dynamic = "force-dynamic";
 
@@ -48,6 +49,12 @@ export default async function PhotoAlbumPage({
             alt={photo.title}
             className="dbx-photo-hero__img"
           />
+          {photo.captionHtml ? (
+            <div
+              className="dbx-photo-hero__caption"
+              dangerouslySetInnerHTML={{ __html: photo.captionHtml }}
+            />
+          ) : null}
         </div>
 
         <div
@@ -55,13 +62,7 @@ export default async function PhotoAlbumPage({
           dangerouslySetInnerHTML={{ __html: photo.content }}
         />
       </article>
-
-      {/* Back link */}
-      <footer className="dbx-post__footer">
-        <Link href="/photography" className="dbx-post__back">
-          ← back to photos
-        </Link>
-      </footer>
+      <PhotoLightbox />
     </main>
   );
 }

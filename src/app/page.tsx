@@ -28,7 +28,7 @@ export default function Home() {
           </span>
         </h1>
         <p className="dbx-hero__tag">
-          just a developer figuring things out, one commit at a time.
+          坚持长期主义，希望能把博客一直进行下去。
         </p>
       </section>
 
@@ -82,8 +82,13 @@ export default function Home() {
                 />
               </div>
               <div className="dbx-photo-card__info">
-                <span className="dbx-photo-card__date">{photo.date}</span>
-                <span className="dbx-photo-card__title">{photo.title}</span>
+                <div className="dbx-photo-card__meta">
+                  <span className="dbx-photo-card__title">{photo.title}</span>
+                  <span className="dbx-photo-card__date">{photo.date}</span>
+                </div>
+                {photo.excerpt ? (
+                  <p className="dbx-photo-card__excerpt">{photo.excerpt}</p>
+                ) : null}
               </div>
             </Link>
           ))}
