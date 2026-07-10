@@ -22,13 +22,16 @@ export default async function BlogPostPage({
     <main className="dbx-page">
       {/* Terminal top bar */}
       <header className="dbx-topbar">
-        <nav className="dbx-term">
+        <nav className="dbx-term" aria-label="Breadcrumb">
           <span className="dbx-term__ps1">➜&nbsp;</span>
-          <Link href="/" className="dbx-term__seg">/home/suzilu</Link>
+          <Link href="/" className="dbx-term__seg" aria-label="Home">
+            <span className="dbx-term__root-full" aria-hidden="true">/home/suzilu</span>
+            <span className="dbx-term__root-short" aria-hidden="true">~</span>
+          </Link>
           <span className="dbx-term__sep">/</span>
           <Link href="/blog" className="dbx-term__seg">writing</Link>
           <span className="dbx-term__sep">/</span>
-          <span className="dbx-term__current">{cleanSlug}</span>
+          <span className="dbx-term__current dbx-term__filename">{cleanSlug}</span>
           <span className="dbx-term__current">.md</span>
           <span className="dbx-term__cursor">&#x2588;</span>
         </nav>
