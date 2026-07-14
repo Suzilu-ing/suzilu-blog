@@ -4,7 +4,7 @@ import { getAllPhotos } from "@/lib/photos";
 
 export default function Home() {
   const posts = getAllPosts();
-  const photos = getAllPhotos();
+  const photos = getAllPhotos().slice(0, 4);
 
   return (
     <main className="dbx-page">
@@ -21,7 +21,7 @@ export default function Home() {
       <section className="dbx-hero">
         <h1 className="dbx-hero__name">
           <span className="dbx-hero__line">
-            suzilu
+            Suzilu
             <span className="dbx-hero__dot dbx-hero__dot--1">.</span>
             <span className="dbx-hero__dot dbx-hero__dot--2">.</span>
             <span className="dbx-hero__dot dbx-hero__dot--3">.</span>

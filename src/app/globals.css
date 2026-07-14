@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
-
 :root {
   color-scheme: dark;
 
@@ -12,12 +10,13 @@
   --dbx-rule: #2a2a2a;
   --dbx-rule-2: #1c1c1c;
   --dbx-accent: #67eb88;
+  --dbx-accent-ink: #167a3f;
   --dbx-accent-dim: rgba(202, 255, 51, 0.12);
 
-  --dbx-font-display: "Space Grotesk", system-ui, sans-serif;
-  --dbx-font-sans: "TsangerJinKai02", system-ui, -apple-system, sans-serif;
-  --dbx-font-caption: "TsangerJinKai02", STKaiti, KaiTi, KaiTi_GB2312, serif;
-  --dbx-font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --dbx-font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --dbx-font-sans: var(--font-tsanger-jinkai), "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", STSong, SimSun, serif;
+  --dbx-font-caption: "Kaiti SC", STKaiti, KaiTi, KaiTi_GB2312, serif;
+  --dbx-font-mono: var(--font-jetbrains-mono), ui-monospace, Menlo, monospace;
 
   --dbx-text-hero: clamp(64px, 17vw, 176px);
   --dbx-text-display: clamp(40px, 6vw, 56px);
@@ -87,7 +86,7 @@ body {
 
 ::selection {
   background: var(--dbx-accent);
-  color: var(--dbx-bg);
+  color: var(--dbx-ink);
 }
 
 a {
@@ -131,7 +130,7 @@ a {
 }
 
 .dbx-term__seg:hover {
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
 }
 
 .dbx-term__root-short {
@@ -216,7 +215,7 @@ a {
 }
 
 .dbx-hero__socials a:hover {
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
 }
 
 /* ── Section (for future use) ─────────────────── */
@@ -239,7 +238,7 @@ a {
 }
 
 a.dbx-section-head__name:hover {
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
 }
 
 .dbx-section-head__line {
@@ -265,7 +264,7 @@ a.dbx-section-head__name:hover {
 
 .dbx-row:hover {
   padding-left: var(--dbx-s-2);
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
 }
 
 .dbx-row__lead {
@@ -274,7 +273,7 @@ a.dbx-section-head__name:hover {
 }
 
 .dbx-row:hover .dbx-row__lead {
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
 }
 
 .dbx-row__arrow {
@@ -285,7 +284,7 @@ a.dbx-section-head__name:hover {
 
 .dbx-row:hover .dbx-row__arrow {
   opacity: 1;
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
   transform: translateX(3px);
 }
 
@@ -476,7 +475,7 @@ a.dbx-section-head__name:hover {
 }
 
 .not-found-row .link:hover {
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
 }
 
 /* ── Blog post ────────────────────────────────── */
@@ -533,7 +532,7 @@ a.dbx-section-head__name:hover {
 }
 
 .dbx-post__body a {
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: opacity var(--dbx-speed-fast);
@@ -749,7 +748,7 @@ a.dbx-section-head__name:hover {
 }
 
 .dbx-post__back:hover {
-  color: var(--dbx-accent);
+  color: var(--dbx-accent-ink);
 }
 
 /* ── Responsive ───────────────────────────────── */
